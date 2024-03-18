@@ -1,5 +1,3 @@
-
-
 def strip_punctuation(string):
     for c in string:
         if c in punctuation_chars: 
