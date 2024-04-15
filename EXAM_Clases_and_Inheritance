@@ -1,0 +1,124 @@
+====  PART A ==== [DONE]
+
+class WOFPlayer:
+     
+	def __init__ (self,nombre, prizeMoney=0, prizes=[]):
+		self.name = nombre
+        	self.prizeMoney = prizeMoney
+       		self.prizes = []
+
+	def addMoney(self,amt):
+		self.prizeMoney = self.prizeMoney + amt
+		return None
+	
+	def goBankrupt(self):
+		self.prizeMoney = 0
+		return None
+
+	def addPrize(self,prize):
+		self.prizes = self.prizes + [prize]
+		return None
+
+	def __str__(self):
+		return "{} (${})".format(self.name, self.prizeMoney)  
+
+
+
+
+====  PART B ==== [In PROGRESS]
+
+class WOFHumanPlayer(WOFPlayer):
+
+	def __init(self, name, prizeMoney=0, prizes=[])
+		WOFPlayer.init(self, name, prizeMoney=0, prizes=[])
+
+	def getMove(self, category, obscuredPhrase, guessed):
+		
+		print(self.name + "has $" + self.prizeMoney)
+		print()
+		print(showBoard(category, obscuredPhrase, guessed))
+		print("Guess a letter, phrase, or type 'exit' or 'pass': ") 
+		print()
+		us_input = input("Guess a letter, phrase, or type 'exit' or 'pass': ")
+		return us_input
+
+
+{name} has ${prizeMoney}  #from __str__(##player)
+
+Category: {category}		##from function showBoard
+Phrase:  {obscured_phrase}
+Guessed: {guessed}
+
+Guess a letter, phrase, or type 'exit' or 'pass':
+
+===========
+
+
+def getNumberBetween(prompt, min, max):
+    userinp = input(prompt) # ask the first time
+
+print(getNumberBetween('Testing getNumberBetween(). Enter a number between 1 and 10', 1, 10))
+
+========
+
+====  PART C ==== [In PROGRESS]
+
+class WOFComputerPlayer(WOFPlayer):
+
+	SORTED_FREQUENCIES = ['Z', 'Q', 'X', 'J', 'K', 'V', 'B', 'P', 'Y', 'G', 'F', 'W', 'M', 'U', 'C', 'L', 'D', 'R', 'H', 'S', 'N', 'I', 'O', 'A', 'T', 'E']
+
+	def __init__ (self, name, difficulty, prizeMoney=-0, prizes=[]):
+		
+		self.difficulty = difficulty
+		WOFPlayer.init(self, name, prizeMoney=-0, prizes=[])
+	
+	def smartCoinFlip(self):
+		rand_numero = random.randint(1, 10)
+		if rand_numer > self.difficulty
+			return False
+		if rand_numer <= self.difficulty
+			return True
+
+	def getPossibleLetters(self,guessed):
+		possibleLetters = []
+		LETTERS_lst = LETTERS.split("")
+		VOWELS_lst = VOWELS.split("")
+		if self.prizeMoney >= VOWEL_COST:
+			for (x in LETTERS_lst) and (not in guessed):
+				possibleLetters.append(x)
+			return possibleLetters
+		
+		if self.prizeMoney < VOWEL_COST:
+			for (x in LETTERS_lst) and (not in guessed) and (not in VOWELS_lst):
+				possibleLetters.append(x)
+			return possibleLetters
+		
+	def getMove(self, category, obscuredPhrase, guessed):
+		if possibleLetters == []
+			return 'pass'
+		if possibleLetters != []
+				if smartCoinFlip(self) == True:
+					return_letters = []
+					for L in SORTED_FREQUENCIES and in possibleLetters:
+						 return_letters.append(L)
+						 return(return_letters[-1])
+				if smartCoinFlip(self) == False:
+					random_letter = random.choice(possibleLetters)
+					return random_letter
+			
+
+
+
+		if possibleLetters == []:
+			return 'pass'
+		if possibleLetters != []:
+            if resultado = True:
+                ret_letters = []
+                return 'pass'
+                
+            if smartCoinFlip(self) == False:
+                random_letter = random.choice(possibleLetters)
+                return random_letter
+        return None
+		
+	
